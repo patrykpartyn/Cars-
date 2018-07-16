@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="container">
+    {% for cars in cars %}
+        <h2> <a href='{{ path('show_car',{'id':cars.id}) }}'>{{ cars.Brand }}</a></h2>
+        <p>{{ cars.Description }}</p>
+
+
+    {% endfor %}
+        <div class="nagigation" >
+            {{ knp_pagination_render(cars) }}
+        </div>
+</div>
+
+
+{% endblock %}
+
+
+

@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<div class="container">
+
+    <h2><center>{{ car.Brand }}</center></h2></br></br></br>
+    <p class="ppp"><b>Opis:</b>  {{ car.Description }}</p>
+    <img src="{{ vich_uploader_asset(car, 'imageFile') }}" />
+    <b>Ilość drzwi:</b>{{ car.category }}
+    <b>Maksymalna prędkość:</b>{{ car.maxSpeed }}
+    <b>Cena:</b>{{ car.price }}
+    <b>Rejon wypożyczenia:</b>{{ car.area }} <b>  Dostępność:</b>{{ car.available }}
+
+        {{ form_start(formOrder) }}
+        {{ form_widget(formOrder) }}
+        {{ form_end(formOrder) }}
+
+
+    <p><b>Dodaj komentarz o samochodzie lub wypożyczalni</b></p>
+    <div class="form-group">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+
+
+    {% for comment in car.comments %}
+
+        <p><b>Treść:</b>{{ comment.content }}
+            </br>
+            <b>Skomentował:</b>{{ comment.user }}    <b>Dodano:</b>{{ comment.createdAt | date('H:i:s d/h/Y')}}</p>
+    {% endfor %}
+
+</div>
+
+
+
+
+
+
+{% endblock %}

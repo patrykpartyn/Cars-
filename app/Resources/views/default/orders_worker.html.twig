@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <h1><center>Zamówienia do zaakceptowania przez admina</center></h1></br></br></br>
+
+
+        {% for orders in orders %}
+            <h2> <a href='{{ path('show_order',{'id':orders.id}) }}'>ID zamówienia:{{ orders.id }} |||| DATA:{{ orders.dateOrder | date('H:i:s d/h/Y') }}</a></h2>
+
+            <p><b>Użytkownik:</b> {{ orders.user}}</p>
+            <p><b>Miasto:</b> {{ orders.user.city}}</p>
+            <p><b>Marka samochodu:</b> {{ orders.carOrder.Brand}}</p>
+            <p><b>Max speed: </b>{{ orders.carOrder.maxSpeed}}</p>
+            <p><b>Kategoria:</b> {{ orders.carOrder.category}}-drzwiowy</p>
+            <p><b>Kolor auta: </b>{{ orders.carOrder.color}}</p>
+            <p><b>Rejon: </b>{{ orders.carOrder.area}}</p>
+            <p><b>Data zamówienia: </b>{{ orders.dateOrder | date('H:i:s d/h/Y') }}</p>
+
+            =================================================================
+            =================================================================
+        {% endfor %}
+
+    </div>
+
+
+{% endblock %}
+

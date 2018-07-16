@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+        <h1><center>Wszytskie zamówienia</center></h1></br></br></br>
+
+
+
+            <p><b>Użytkownik:</b> {{ order.user}}</p>
+            <p><b>Miasto:</b> {{ order.user.city}}</p>
+            <p><b>Marka samochodu:</b> {{ order.carOrder.Brand}}</p>
+            <p><b>Max speed: </b>{{ order.carOrder.maxSpeed}}</p>
+            <p><b>Kategoria:</b> {{ order.carOrder.category}}-drzwiowy</p>
+            <p><b>Kolor auta: </b>{{ order.carOrder.color}}</p>
+            <p><b>Rejon: </b>{{ order.carOrder.area}}</p>
+            <p><b>Data zamówienia: </b>{{ order.dateOrder | date('H:i:s d/h/Y') }}</p>
+
+            {{ form_start(formOrder) }}
+            {{ form_widget(formOrder) }}
+            {{ form_end(formOrder) }}
+
+
+
+
+    </div>
+
+
+{% endblock %}
+
